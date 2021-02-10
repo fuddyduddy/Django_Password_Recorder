@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>Account List:</h1>
+        {% if account_list %}
+        <ul>
+            {% for account in account_list %}
+                <li>
+                    <a href="{{ account.get_absolute_url }}">{{ account.accountName }}</a> ({{ account.summary }})
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>There is no user registered.</p>
+        {% endif %}
+    {% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+    {% block content %}
+        <h1>This is the index page.</h1>
+        <ul>
+            <li>There is <strong>{{ num_user }}</strong> users right now.</li>
+            <li>There is <strong>{{ num_authLevel }}</strong> auth level right now.</li>
+            <li>There is <strong>{{ num_account }}</strong> account right now.</li>
+        </ul>
+    {% endblock %}
