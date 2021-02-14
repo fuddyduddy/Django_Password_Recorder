@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+    {% block content %}
+        <h1>Account Detail:</h1>
+        <p>{{ account.accountName }}</p>
+        <p>Summary: {% if account.summary %}{{ account.summary }}{% endif %}</p>
+        <p>UserID: {% if account.userID %}{{ account.userID }}{% endif %}</p>
+        <p>Password: {% if account.password %}{{ account.password }}{% endif %}</p>
+        <p>Email: {% if account.email %}{{ account.email }}{% endif %}</p>
+        <p>Auth Level: {% if account.auth %}{{ account.auth }}{% endif %}</p>
+        <p>Date_of_created: {% if account.date_of_created %}{{ account.date_of_created }}{% endif %}</p>
+        <p>Date_of_deleted: {% if account.date_of_deleted %}{{ account.date_of_deleted }}{% endif %}</p>
+
+    {% endblock %}

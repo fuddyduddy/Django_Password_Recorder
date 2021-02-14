@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@8(bwn@4r@j*&5h*2=tpgx1l6qc&h1z+#++e8k+u6(9)d^li^-'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -55,7 +57,8 @@ ROOT_URLCONF = 'mydjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [], # os.path.join(BASE_DIR, 'templates')],
+        #'DIRS': [], 
+        'DIRS': [os.path.join(BASE_DIR, 'password', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,10 +83,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
     # 'default': {
-    #     'ENGINE':'django.db.backends.postgresql',
-    #     'NAME':'djangopassword',
-    #     'USER':'databaseuser',
-    #     'PASSWORD':'a123456789a0',
+    #     'ENGINE':config('ENGINE'),
+    #     'NAME':config('NAME'),
+    #     'USER':config('USER'),
+    #     'PASSWORD':config('PASSWORD'),
     #     'HOST':'127.0.0.1',
     #     'PORT':'5432',
     # }
@@ -122,8 +125,19 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Add redirect home url anywhere with settings.py
+LOGIN_REDIRECT_URL = '/'
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# When styles.css return 404 response?
+# https://stackoverflow.com/questions/57214711/django-cant-find-static-folder
+STATICFILES_DIRS = (
+  os.path.join(BASE_DIR, 'static_root'),
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

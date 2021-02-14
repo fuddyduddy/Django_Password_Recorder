@@ -19,3 +19,4 @@ Pending.
 WIP:<br>
 2021/2/2 (12:14): Uploaded backbone for the project [django-admin startproject mydjango]<br>
 2021/2/2 (12:19): Hide django secret key (my mistake and learnt from it)
+2021/2/10 (18:08): Commit all changes today by VS Code.  

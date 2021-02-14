@@ -19,7 +19,7 @@ class User(models.Model):
         ordering = ['lastName', 'firstName']
 
     def get_absolute_url(self):
-        return reverse('user-list')#, args=[str(self.id)])
+        return reverse('user-detail', args=[str(self.id)])
 
     def __str__(self):
         return self.lastName + self.firstName
@@ -28,7 +28,7 @@ class AuthLevel(models.Model):
     auth        = models.CharField(max_length=100, help_text='Input Auth Level here. e.g: Admin, Peer, Acquaintance (max length = 50).')
 
     def get_absolute_url(self):
-        return reverse('auth-level-list')#, args=[str(self.id)])
+        return reverse('auth-level-detail', args=[str(self.id)])
 
     # To display auth instead of showing 'AuthLevel Object (1)'
     def __str__(self):
@@ -50,7 +50,7 @@ class Account(models.Model):
         pass
 
     def get_absolute_url(self):
-        return reverse('account-list')#, args=[str(self.id)])
+        return reverse('account-detail', args=[str(self.id)])
 
     def __str__(self):
         return self.accountName

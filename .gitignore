@@ -4,7 +4,6 @@
 #Database
 *.sqlite3
 
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -84,6 +83,7 @@ target/
 celerybeat-schedule
 
 # dotenv
+# python-decouple
 .env
 
 # virtualenv
