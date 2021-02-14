@@ -133,11 +133,3 @@ LOGIN_REDIRECT_URL = '/'
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# When styles.css return 404 response?
-# https://stackoverflow.com/questions/57214711/django-cant-find-static-folder
-STATICFILES_DIRS = (
-  os.path.join(BASE_DIR, 'static_root'),
-)
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
